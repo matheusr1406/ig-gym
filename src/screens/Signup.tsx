@@ -4,21 +4,21 @@ import BackgroundIMG from "@assets/background.png";
 import LogoSvg from "@assets/logo.svg";
 import { Input } from "@components/Input";
 import { Button } from "@components/Button";
-import { useNavigation } from "@react-navigation/native";
+import { Platform } from "react-native";
 import {AuthNavigatorRoutesProps} from '@routes/auth.routes'
+import { useNavigation } from "@react-navigation/native";
 
-export function Signin() {
+export function Signup() {
 
   const navigation = useNavigation<AuthNavigatorRoutesProps>();
 
-  function handleNewAccount(){
-    navigation.navigate('signUp')
+  function handleBackButton(){
+    navigation.navigate('signIn')
   }
 
-
   return (
-    <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false}>
-    <VStack flex={1} bg="gray.700" px={10}>
+    <ScrollView contentContainerStyle={{flexGrow: 1}} showsVerticalScrollIndicator={false} >
+    <VStack flex={1} bg="gray.700" px={10} pb={Platform.OS === 'ios' ? 40 : 16}>
       <Image
         source={BackgroundIMG}
         defaultSource={BackgroundIMG}
@@ -35,8 +35,9 @@ export function Signin() {
 
       <Center>
         <Heading color="gray.100" mb={6} fontFamily="heading">
-          Acesse sua conta
+          Crie sua conta
         </Heading>
+        <Input placeholder="Nome"/>
         <Input
           placeholder="E-mail"
           keyboardType="email-address"
@@ -44,18 +45,16 @@ export function Signin() {
         />
         <Input placeholder="Senha" secureTextEntry />
 
-        <Button title="Acessar" />
+        <Button title="Criar" />
       </Center>
 
-      <Center mt={24}>
-        <Text color="gray.100" fontSize="sm" mb={3} fontFamily="body">
-          Ainda não tem acesso?
-        </Text>
+      <Center >
 
         <Button 
-        title="Criar conta" 
+        title="voltar para login" 
         variant="outline" 
-        onPress={handleNewAccount}
+        onPress={handleBackButton}
+        mt={24}
         />
       </Center>
     </VStack>
