@@ -10,7 +10,7 @@ import {AuthNavigatorRoutesProps} from '@routes/auth.routes'
 export function Signin() {
 
   const navigation = useNavigation<AuthNavigatorRoutesProps>();
-
+  
   function handleNewAccount(){
     navigation.navigate('signUp')
   }
