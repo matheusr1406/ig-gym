@@ -1,4 +1,3 @@
-import { Text, View } from "react-native";
 import { NativeBaseProvider } from "native-base";
 import {
   useFonts,
