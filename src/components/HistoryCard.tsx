@@ -12,7 +12,7 @@ export function HistoryCard() {
       alignItems="center"
       justifyContent="space-between"
     >
-      <VStack mr={5}>
+      <VStack mr={5} flexShrink={1}>
         <Heading
           color="white"
           fontSize="md"
